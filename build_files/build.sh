@@ -21,6 +21,8 @@ set -ouex pipefail
 
 dnf5 -y remove firefox
 
+dnf5 -y install mpv yt-dlp
+
 dnf5 config-manager setopt google-chrome.enabled=1
 dnf5 -y install google-chrome-stable
 dnf5 config-manager setopt google-chrome.enabled=0
