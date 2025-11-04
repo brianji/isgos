@@ -27,6 +27,16 @@ dnf5 config-manager setopt google-chrome.enabled=1
 dnf5 -y install google-chrome-stable
 dnf5 config-manager setopt google-chrome.enabled=0
 
+dnf5 -y install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+dnf5 -y swap fmpeg-free ffmpeg --allowerasing
+dnf5 -y swap mesa-va-drivers mesa-va-drivers-freeworld
+dnf5 -y swap mesa-vdpau-drivers mesa-vdpau-drivers-freeworld
+dnf5 -y swap mesa-va-drivers.i686 mesa-va-drivers-freeworld.i686
+dnf5 -y swap mesa-vdpau-drivers.i686 mesa-vdpau-drivers-freeworld.i686
+
+dnf5 -y install steam
+dnf5 -y remove rpmfusion-free-release rpmfusion-nonfree-release
+
 dnf5 -y install https://repo.protonvpn.com/fedora-$(rpm -E %fedora)-stable/protonvpn-stable-release/protonvpn-stable-release-1.0.3-1.noarch.rpm
 dnf5 -y install proton-vpn-gnome-desktop || true
 dnf5 -y remove proton-stable-release
