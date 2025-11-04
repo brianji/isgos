@@ -21,6 +21,10 @@ set -ouex pipefail
 
 dnf5 -y remove firefox
 
+dnf5 config-manager setopt google-chrome.enabled=1
+dnf5 -y install google-chrome-stable
+dnf5 config-manager setopt google-chrome.enabled=0
+
 #### Example for enabling a System Unit File
 
 # systemctl enable podman.socket
